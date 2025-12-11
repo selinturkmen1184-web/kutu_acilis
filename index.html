@@ -1,0 +1,1583 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+<title>✨ CİCİ KUTULAR ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-pink-start:#fff0f5;--bg-pink-mid:#e856a1;--bg-pink-end:#ffe4e1;--pink-deep:#ff1493;--pink-dark:#c71585;--text:#5e2a40;--ribbon-color:#ff0066;--ribbon-highlight:#ff69b4;--theme-color-primary:#ff1493;--theme-color-secondary:#ff69b4;--theme-color-accent:#c71585;--card-bg:rgba(255,255,255,.7)}
+.theme-spiritual{--theme-color-primary:#c71585;--theme-color-secondary:#ff69b4}
+.theme-disney{--theme-color-primary:#ff1493;--theme-color-secondary:#ffb6c1}
+.theme-growth{--theme-color-primary:#e0115f;--theme-color-secondary:#ff8a80}
+body.dark{--bg-pink-start:#1a1020;--bg-pink-mid:#311a3a;--bg-pink-end:#4a274f;--text:#f7e9ff;--card-bg:rgba(20,10,30,.9)}
+*{box-sizing:border-box;margin:0;padding:0;user-select:none}
+body{min-height:100vh;font-family:'Nunito',sans-serif;color:var(--text);display:flex;flex-direction:column;align-items:center;padding:0;overflow-x:hidden;position:relative;background-color:var(--bg-pink-start);background-image:radial-gradient(circle at 50% 50%,rgba(255,255,255,0.8) 0%,transparent 60%),linear-gradient(135deg,var(--bg-pink-start) 0%,var(--bg-pink-mid) 50%,var(--bg-pink-end) 100%);background-attachment:fixed}
+.glow{animation:glowPulse 1.5s ease-in-out infinite alternate}
+@keyframes glowPulse{0%{filter:drop-shadow(0 0 2px #fff)}100%{filter:drop-shadow(0 0 15px #ff69b4)}}
+.sparkle-bg{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(circle at 10% 20%,rgba(255,255,255,0.6) 0,transparent 35%),radial-gradient(circle at 80% 0,rgba(255,255,255,0.5) 0,transparent 40%),radial-gradient(circle at 0 80%,rgba(255,255,255,0.4) 0,transparent 40%);opacity:.4;mix-blend-mode:screen;animation:sparkleMove 18s linear infinite alternate;z-index:1}
+@keyframes sparkleMove{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(10px,-20px,0)}}
+.bg-star{position:fixed;width:220px;height:220px;opacity:0.45;pointer-events:none;z-index:3;animation:floatStar 9s ease-in-out infinite alternate;filter:drop-shadow(0 0 14px rgba(0,0,0,.7));font-size:180px;display:flex;align-items:center;justify-content:center}
+.bg-star.small{width:120px;height:120px;font-size:100px}
+.bg-star.tiny{width:80px;height:80px;font-size:60px}
+.bg-star.star1{left:4%;top:8%;animation-delay:0s}
+.bg-star.star2{right:6%;top:12%;animation-delay:1s}
+.bg-star.star3{left:10%;bottom:8%;animation-delay:0.5s}
+.bg-star.star4{right:12%;bottom:6%;animation-delay:1.2s}
+.bg-star.star5{left:40%;top:35%;animation-delay:0.8s}
+@keyframes floatStar{0%{transform:translateY(0) scale(1)}100%{transform:translateY(-18px) scale(1.07)}}
+.huge-title{font-family:'Nunito',sans-serif;font-size:3.2rem;font-weight:800;margin:20px 10px 10px 10px;text-align:center;z-index:10;position:relative;background:linear-gradient(110deg,#ff1493 20%,#fff 40%,#ff1493 60%,#c71585 80%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shine 3s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+/* countdown-box tamamen kaldırıldı (HTML + JS). CSS kalsa da kullanılmıyor */
+.countdown-box{display:none}
+.app{width:98%;max-width:1200px;background:transparent;padding:10px;position:relative;z-index:10}
+.app-header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.app-header-left{font-weight:800;font-size:1.1rem}
+.app-header-right{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border-radius:999px;border:1px solid #f5cfe3;padding:7px 13px;font-size:.78rem;background:#fff;color:var(--text);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:transform .12s ease,box-shadow .12s ease,background .12s ease}
+.btn:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.btn-primary{background:linear-gradient(120deg,var(--theme-color-primary),var(--theme-color-secondary));border:none;color:#fff;font-weight:600}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,.6)}
+.hidden{display:none!important}
+.name-row{display:flex;gap:8px;align-items:center;margin-bottom:16px;flex-wrap:wrap;justify-content:center;background:var(--card-bg);padding:15px;border-radius:20px}
+.name-row input{flex:1;min-width:150px;padding:8px 12px;border:1px solid #f4d3e6;border-radius:999px}
+.mode-select{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin:0 auto 10px auto}
+.mode-card{background:var(--card-bg);border-radius:20px;padding:20px;text-align:center;cursor:pointer;transition:.3s}
+.mode-card:hover{transform:translateY(-8px);box-shadow:0 16px 32px rgba(0,0,0,.15)}
+.mode-title{font-weight:700;color:var(--pink-deep);font-size:1.1rem;margin-top:6px}
+.calendar-wrapper{margin-top:8px;padding:15px;border-radius:25px;background:var(--card-bg);border:1px solid #f6d6eb}
+.calendar-grid{margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;grid-auto-rows:1fr}
+.progress-container{margin:8px auto;padding:12px;background:var(--card-bg);border-radius:16px}
+.progress-bar{width:100%;height:22px;background:#f4d3e6;border-radius:12px;overflow:hidden}
+.progress-fill{height:100%;border-radius:12px;transition:width .5s ease;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;color:#fff;background:linear-gradient(90deg,var(--theme-color-primary),var(--theme-color-secondary))}
+.badges{display:flex;gap:8px;justify-content:center;margin-top:6px}
+.badge{font-size:1.6rem;opacity:.25;transition:all .3s}
+.badge.earned{opacity:1;transform:scale(1.1)}
+.level-row{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;margin-top:6px}
+.box{position:relative;aspect-ratio:1/1;border-radius:20px;box-shadow:0 10px 20px rgba(0,0,0,.1);cursor:pointer;overflow:hidden;transition:transform .3s,box-shadow .3s,filter .3s;background-color:#fff0f5}
+.box:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 20px 40px rgba(255,105,180,.4)}
+.pattern-1{background-image:radial-gradient(#ff69b4 20%,transparent 20%);background-size:25px 25px;background-color:#ffe6f2}
+.pattern-2{background:repeating-linear-gradient(45deg,#ffb7c5,#ffb7c5 15px,#fff 15px,#fff 30px)}
+.pattern-3{background:repeating-linear-gradient(90deg,#ff1493,#ff1493 15px,#ff69b4 15px,#ff69b4 30px)}
+.pattern-4{background-color:#fff;background-image:linear-gradient(45deg,#ffc1e3 25%,transparent 25%,transparent 75%,#ffc1e3 75%),linear-gradient(45deg,#ffc1e3 25%,transparent 25%,transparent 75%,#ffc1e3 75%);background-size:30px 30px;background-position:0 0,15px 15px}
+.pattern-5{background-color:#ffebf3;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff1493' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");background-size:40px 40px}
+.pattern-6{background:linear-gradient(135deg,#ff9a9e 0%,#fecfef 99%)}
+.ribbon-v{position:absolute;width:18px;height:100%;left:50%;top:0;transform:translateX(-50%);background:linear-gradient(to right,var(--ribbon-color),var(--ribbon-highlight),var(--ribbon-color));z-index:1}
+.ribbon-h{position:absolute;width:100%;height:18px;top:50%;left:0;transform:translateY(-50%);background:linear-gradient(to bottom,var(--ribbon-color),var(--ribbon-highlight),var(--ribbon-color));z-index:1}
+.ribbon-knot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--ribbon-highlight),var(--ribbon-color));z-index:2}
+.gift-tag{position:absolute;top:45%;left:55%;background:#fff;border:3px solid var(--ribbon-color);border-radius:8px;padding:4px 10px;font-weight:900;color:var(--ribbon-color);font-size:1.2rem;transform:rotate(-10deg);z-index:3;transition:.25s}
+.box:hover .gift-tag{transform:rotate(0) scale(1.15)}
+.box-big{grid-column:span 1;aspect-ratio:2/1}
+@media (min-width:800px){.box-big{grid-column:span 2}}
+.box-locked{filter:grayscale(100%) brightness(.9);cursor:not-allowed;opacity:.9}
+.box-locked:hover{transform:none}
+.box-opened .ribbon-v,.box-opened .ribbon-h,.box-opened .ribbon-knot,.box-opened .gift-tag{display:none}
+.box-opened{background:var(--theme-color-secondary)!important;background-image:none!important;position:relative}
+.box-opened::after{content:"✓";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3.5rem;color:#fff;font-weight:bold;z-index:5}
+.modal-opening{animation:boxOpen .6s cubic-bezier(.1,1.6,.3,1) forwards,glowZoom .8s ease-out}
+@keyframes boxOpen{0%{transform:scale(0.2) rotate(-15deg);opacity:0}65%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+@keyframes glowZoom{0%{box-shadow:0 0 0px rgba(255,200,230,0)}100%{box-shadow:0 0 40px rgba(255,200,230,0.7)}}
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+.modal{width:100%;max-width:700px;background:#fff;border-radius:30px;padding:28px;box-shadow:0 30px 80px rgba(0,0,0,.4);max-height:90vh;overflow-y:auto;text-align:center;position:relative;border:4px solid var(--pink-deep)}
+body.dark .modal{background:#201021;color:#f9e8ff}
+.trophy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:15px;margin-top:10px}
+.trophy-card{background:#f9f9f9;padding:15px;border-radius:14px;text-align:center;font-size:.8rem}
+body.dark .trophy-card{background:#341535}
+.diary-item{padding:10px;border-bottom:1px solid #eee;text-align:left;font-size:.9rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px;margin-top:10px}
+.gallery-grid img{width:100%;display:block;border-radius:10px}
+#wheel{width:220px;height:220px;border-radius:50%;margin:10px auto;background:conic-gradient(#ff9aa2 0 90deg,#ffb7b2 90deg 180deg,#ffdac1 180deg 270deg,#ffe9a7 270deg 360deg);position:relative;box-shadow:0 0 18px rgba(0,0,0,.2);overflow:hidden;animation:wheelGlow 2.2s ease-in-out infinite alternate}
+#wheel::after{content:"";position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:18px solid #fff}
+#wheel::before{content:"";position:absolute;inset:18px;border-radius:50%;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.9),transparent 60%);mix-blend-mode:screen;opacity:.7}
+@keyframes wheelGlow{0%{box-shadow:0 0 14px rgba(255,255,255,.5)}100%{box-shadow:0 0 30px rgba(255,215,0,.95)}}
+.game-memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.game-memory-cell{padding:12px;border-radius:10px;background:#ffe4f4;cursor:pointer;font-size:1rem}
+@keyframes bounceGift{0%{transform:translateY(0) scale(1)}100%{transform:translateY(-8px) scale(1.05)}}
+.premium-row{margin-top:20px;display:grid;grid-template-columns:repeat(4,minmax(70px,1fr));gap:12px}
+@media(max-width:600px){.premium-row{grid-template-columns:repeat(2,minmax(90px,1fr))}}
+.premium-box{position:relative;border-radius:18px;padding:10px 6px 12px;background:linear-gradient(135deg,#fff7d1,#ffe38d,#ffd000);box-shadow:0 0 18px rgba(255,215,0,0.7);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;border:2px solid rgba(255,255,255,.7)}
+.premium-box.locked{filter:saturate(.6) brightness(.95)}
+.premium-box:hover{transform:translateY(-4px);box-shadow:0 0 26px rgba(255,215,0,1)}
+.premium-crown{width:42px;height:28px;background:radial-gradient(circle at 20% 0,#fff,rgba(255,255,255,0)),linear-gradient(135deg,#fff6bf,#ffd54f,#ffb300);border-radius:10px 10px 4px 4px;position:relative;margin-bottom:4px;animation:crownFloat 1.8s ease-in-out infinite alternate}
+.premium-crown::before,.premium-crown::after{content:"";position:absolute;top:-10px;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle,#fff 0,#ffd54f 40%,#ffb300 100%);box-shadow:0 0 10px rgba(255,255,255,.9)}
+.premium-crown::before{left:4px}
+.premium-crown::after{right:4px}
+.premium-crown span{position:absolute;left:50%;top:-12px;transform:translateX(-50%);width:12px;height:12px;border-radius:50%;background:radial-gradient(circle,#fff 0,#ffd700 40%,#ffa000 100%);box-shadow:0 0 12px rgba(255,255,255,.9)}
+@keyframes crownFloat{0%{transform:translateY(0)}100%{transform:translateY(-4px)}}
+.premium-lock{font-size:0.9rem;margin-bottom:2px}
+.premium-label{font-size:0.8rem;font-weight:800}
+.premium-sub{font-size:0.7rem}
+.splash-screen{position:fixed;inset:0;background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);display:flex;align-items:center;justify-content:center;z-index:99999;animation:splashFadeIn 0.8s.ease-out;overflow:hidden}
+.splash-screen::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(255,255,255,0.1) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(255,255,255,0.1) 0%,transparent 50%),radial-gradient(circle at 40% 80%,rgba(255,255,255,0.1) 0%,transparent 50%);animation:splashBgMove 15s ease-in-out infinite alternate}
+@keyframes splashFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes splashBgMove{0%{transform:translate(0,0) scale(1)}100%{transform:translate(20px,-20px) scale(1.1)}}
+.splash-content{position:relative;text-align:center;z-index:2;max-width:600px;padding:40px 20px}
+.splash-animation{position:relative;margin:0 auto 40px;width:180px;height:180px}
+.gift-box-animated{position:relative;width:100%;height:100%;animation:giftFloat 3s ease-in-out infinite}
+@keyframes giftFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)}}
+.gift-base{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:140px;height:100px;background:linear-gradient(135deg,#ff1493 0%,#ff69b4 100%);border-radius:10px;box-shadow:0 20px 60px rgba(255,20,147,0.4)}
+.gift-lid{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);width:150px;height:30px;background:linear-gradient(135deg,#c71585 0%,#ff1493 100%);border-radius:10px 10px 5px 5px;animation:lidBounce 2s ease-in-out infinite;transform-origin:center bottom}
+@keyframes lidBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-15px) rotateX(20deg)}}
+.gift-ribbon-v{position:absolute;width:20px;height:100%;left:50%;top:0;transform:translateX(-50%);background:linear-gradient(to right,#fff,#ffe4e1,#fff);box-shadow:0 0 10px rgba(255,255,255,0.5)}
+.gift-ribbon-h{position:absolute;width:100%;height:20px;top:50%;left:0;transform:translateY(-50%);background:linear-gradient(to bottom,#fff,#ffe4e1,#fff);box-shadow:0 0 10px rgba(255,255,255,0.5)}
+.sparkles-container{position:absolute;inset:0;pointer-events:none}
+.sparkle{position:absolute;font-size:24px;animation:sparkleFloat 3s ease-in-out infinite}
+.sparkle:nth-child(1){top:-20px;left:10%;animation-delay:0s}
+.sparkle:nth-child(2){top:-10px;right:10%;animation-delay:0.5s}
+.sparkle:nth-child(3){bottom:-20px;left:20%;animation-delay:1s}
+.sparkle:nth-child(4){bottom:-10px;right:20%;animation-delay:1.5s}
+@keyframes sparkleFloat{0%,100%{transform:translateY(0) scale(1);opacity:1}50%{transform:translateY(-30px) scale(1.2);opacity:0.7}}
+.splash-title{font-family:'Nunito',sans-serif;font-size:3.5rem;font-weight:900;color:#fff;margin-bottom:20px;text-shadow:0 4px 20px rgba(0,0,0,0.3);animation:titleGlow 2s ease-in-out infinite alternate}
+.splash-line{display:block}
+.splash-emoji{display:inline-block;font-size:4rem;animation:emojiSpin 3s ease-in-out infinite}
+@keyframes titleGlow{from{text-shadow:0 4px 20px rgba(255,255,255,0.3)}to{text-shadow:0 4px 40px rgba(255,255,255,0.8),0 0 60px rgba(255,20,147,0.6)}}
+@keyframes emojiSpin{0%,100%{transform:rotate(0deg) scale(1)}25%{transform:rotate(-10deg) scale(1.1)}75%{transform:rotate(10deg) scale(1.1)}}
+.splash-subtitle{font-size:1.2rem;color:rgba(255,255,255,0.95);margin-bottom:40px;line-height:1.6;text-shadow:0 2px 10px rgba(0,0,0,0.2)}
+.splash-button{font-family:'Nunito',sans-serif;font-size:1.4rem;font-weight:700;padding:18px 50px;background:linear-gradient(135deg,#fff 0%,#ffe4e1 100%);color:#c71585;border:none;border-radius:50px;cursor:pointer;box-shadow:0 10px 40px rgba(255,255,255,0.3);transition:all 0.3s ease;position:relative;overflow:hidden;animation:buttonPulse 2s ease-in-out infinite}
+.splash-button::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 0%,rgba(255,255,255,0.5) 50%,transparent 100%);transform:translateX(-100%);transition:transform 0.6s}
+.splash-button:hover::before{transform:translateX(100%)}
+.splash-button:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 15px 60px rgba(255,255,255,0.5)}
+@keyframes buttonPulse{0%,100%{box-shadow:0 10px 40px rgba(255,255,255,0.3)}50%{box-shadow:0 10px 60px rgba(255,20,147,0.5),0 0 80px rgba(255,105,180,0.4)}}
+.btn-sparkle{display:inline-block;animation:sparkleRotate 2s linear infinite}
+@keyframes sparkleRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.splash-features{display:flex;justify-content:center;gap:30px;margin-top:50px;flex-wrap:wrap}
+.feature-item{display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.9);font-size:0.9rem;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.feature-icon{font-size:2.5rem;display:block;animation:featureFloat 3s.ease-in-out infinite}
+.feature-item:nth-child(1) .feature-icon{animation-delay:0s}
+.feature-item:nth-child(2) .feature-icon{animation-delay:0.3s}
+.feature-item:nth-child(3) .feature-icon{animation-delay:0.6s}
+@keyframes featureFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+body.dark .splash-screen{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+@media(max-width:600px){.splash-title{font-size:2.5rem}.splash-emoji{font-size:3rem}.splash-subtitle{font-size:1rem;padding:0 20px}.splash-button{font-size:1.2rem;padding:15px 40px}.gift-box-animated{transform:scale(0.8)}.splash-features{gap:20px}.huge-title{font-size:2.3rem}.app-header{flex-direction:column;align-items:flex-start}}
+.splash-screen.fade-out{animation:splashFadeOut 0.8s ease-in forwards}
+@keyframes splashFadeOut{to{opacity:0;transform:scale(1.1);pointer-events:none}}
+
+/* === PERDE / OPENING CURTAIN v3 === */
+.gate-screen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  z-index:100000;
+  backdrop-filter:blur(14px);
+  background:rgba(0,0,0,0.55);
+}
+.gate-left,.gate-right{
+  position:absolute;
+  top:0;
+  width:50%;
+  height:100%;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(120,0,60,.35) 0px,
+      rgba(200,0,100,.42) 8px,
+      rgba(120,0,60,.55) 16px
+    ),
+    radial-gradient(circle at 50% 30%,
+      rgba(255,200,230,.4) 0%,
+      rgba(150,0,80,.65) 60%,
+      rgba(60,0,40,.95) 100%
+    );
+  box-shadow:
+    inset 0 0 60px rgba(0,0,0,.85),
+    0 0 60px rgba(0,0,0,.8);
+  transition:transform 1.4s cubic-bezier(.25,1.35,.45,1);
+}
+.gate-left{
+  left:0;
+  transform-origin:left;
+  filter:brightness(1.2);
+}
+.gate-right{
+  right:0;
+  transform-origin:right;
+  filter:brightness(1.1);
+}
+.gate-title{
+  z-index:999;
+  font-family:'Dancing Script',cursive;
+  font-size:4rem;
+  font-weight:900;
+  color:white;
+  text-shadow:
+    0 0 20px rgba(255,180,220,1),
+    0 0 80px rgba(255,160,200,.6);
+  animation:titleGlow 1.8s ease-in-out infinite alternate;
+}
+@keyframes titleGlow{
+  0%{opacity:.6;transform:scale(1);}
+  100%{opacity:1;transform:scale(1.05);}
+}
+.gate-open .gate-left{transform:translateX(-100%);}
+.gate-open .gate-right{transform:translateX(100%);}
+.gate-screen::before{
+  content:"";
+  position:absolute;
+  inset:-100px;
+  background:radial-gradient(circle,
+    rgba(255,255,255,.9) 0%,
+    rgba(255,200,230,.3) 25%,
+    transparent 70%);
+  opacity:0;
+  animation:burst 1.2s ease forwards .4s;
+}
+@keyframes burst{
+  0%{opacity:0;transform:scale(.3);}
+  40%{opacity:1;}
+  100%{opacity:0;transform:scale(2);}
+}
+.app{
+  filter:blur(14px);
+  transition:filter 1.4s.ease;
+}
+.gate-open ~ .app{
+  filter:blur(0px);
+}
+
+/* --- EK: Tema renklerini daha belirgin yap --- */
+body.theme-spiritual{
+  --theme-color-primary:#6a0dad;
+  --theme-color-secondary:#e0b3ff;
+  --bg-pink-mid:#3e0a63;
+  --bg-pink-end:#f3d9ff;
+}
+body.theme-disney{
+  --theme-color-primary:#ff2f92;
+  --theme-color-secondary:#ffd6ec;
+  --bg-pink-mid:#ff7cc2;
+  --bg-pink-end:#ffe6f4;
+}
+body.theme-growth{
+  --theme-color-primary:#ff3b00;
+  --theme-color-secondary:#ffae57;
+  --bg-pink-mid:#ff6d4d;
+  --bg-pink-end:#ffe1cc;
+}
+
+/* --- EK: Dark modda buton yazıları düzeltilmiş --- */
+body.dark .btn{
+  color:#fff !important;
+  border-color:rgba(255,255,255,0.6) !important;
+  background-color:rgba(255,255,255,0.06);
+}
+body.dark .btn-primary{
+  background:linear-gradient(120deg,#ff66b7,#ff1493);
+  color:#fff !important;
+  border:none;
+}
+body.dark .btn-ghost{
+  background:transparent;
+  border-color:rgba(255,255,255,0.7);
+}
+
+/* --- EK: Şans çarkı butonu yanarlı dönerli --- */
+#spinWheelBtn{
+  animation:spinGlow 1.5s ease-in-out infinite alternate;
+}
+@keyframes spinGlow{
+  0%{
+    box-shadow:0 0 8px rgba(255,20,147,0.7);
+    transform:scale(1);
+  }
+  100%{
+    box-shadow:0 0 20px rgba(255,105,180,1);
+    transform:scale(1.06);
+  }
+}
+</style>
+</head>
+<body>
+<!-- PERDE -->
+<div id="gateScreen" class="gate-screen">
+  <div class="gate-left"></div>
+  <div class="gate-right"></div>
+  <div class="gate-title">🎁 Advent World</div>
+</div>
+
+<canvas id="snowCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2;"></canvas>
+
+<div class="bg-star star1">⭐</div>
+<div class="bg-star small star2">✨</div>
+<div class="bg-star star3">🌟</div>
+<div class="bg-star small star4">💫</div>
+<div class="bg-star tiny star5">⭐</div>
+
+<div class="sparkle-bg"></div>
+
+<div id="splashScreen" class="splash-screen">
+  <div class="splash-content">
+    <div class="splash-animation">
+      <div class="gift-box-animated">
+        <div class="gift-lid"></div>
+        <div class="gift-base">
+          <div class="gift-ribbon-v"></div>
+          <div class="gift-ribbon-h"></div>
+        </div>
+        <div class="sparkles-container">
+          <span class="sparkle">✨</span>
+          <span class="sparkle">💖</span>
+          <span class="sparkle">🌟</span>
+          <span class="sparkle">⭐</span>
+        </div>
+      </div>
+    </div>
+    
+    <h1 class="splash-title">
+      <span class="splash-line">Hoş Geldin!</span>
+      <span class="splash-emoji">🎁</span>
+    </h1>
+    
+    <p class="splash-subtitle">
+      24 gün, 24 sürpriz kutu seni bekliyor...<br>
+      Her gün yeni bir hediye, anı ve mucize! ✨
+    </p>
+    
+    <button class="splash-button" id="enterCalendarBtn">
+      <span class="btn-sparkle">✨</span>
+      Takvimi Aç
+      <span class="btn-sparkle">✨</span>
+    </button>
+    
+    <div class="splash-features">
+      <div class="feature-item">
+        <span class="feature-icon">🎨</span>
+        <span>3 Farklı Tema</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🎮</span>
+        <span>Mini Oyunlar</span>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🏆</span>
+        <span>Kupalar & Rozetler</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="huge-title glow">✨ Advent Calendar ✨</h1>
+
+<div class="app">
+  <header class="app-header">
+    <div class="app-header-left">🎁 Sürpriz Kutusu</div>
+    <div class="app-header-right">
+      <button class="btn" id="toggleDarkBtn">🌙 / ☀️</button>
+      <button class="btn" id="toggleMusicBtn">🎵 Müzik</button>
+      <button class="btn" id="spinWheelBtn">🎡 Şans Çarkı</button>
+      <button class="btn" id="openDiaryBtn">📖 Anılar</button>
+      <button class="btn" id="openGalleryBtn">🖼 Galeri</button>
+      <button class="btn" id="openTrophiesBtn">🏆 Kupalar</button>
+      <button class="btn" id="openLeaderboardBtn">🏅 Sıralama</button>
+      <button class="btn" id="backToModes" style="display:none">← Geri</button>
+    <button class="btn" id="toggleLangBtn">🇹🇷 / 🇬🇧</button>
+
+    </div>
+  </header>
+
+  <div class="progress-container hidden" id="progressContainer">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width:0%">
+        <span id="progressPercent">0%</span>
+      </div>
+    </div>
+    <div class="level-row">
+      <span id="levelInfo">Seviye: 1 | XP: 0</span>
+      <span id="challengeInfo">Grup Challenge: 0 kişi 🎯</span>
+    </div>
+    <div class="badges">
+      <span class="badge" id="badge5">🌟</span>
+      <span class="badge" id="badge10">⭐</span>
+      <span class="badge" id="badge24">🏆</span>
+    </div>
+  </div>
+
+  <div class="name-row">
+    <p id="instructionText" style="width:100%;margin-bottom:10px;color:var(--pink-deep);font-weight:bold;text-align:center">
+      BİR CALENDAR SEÇ VE BAŞLA
+    </p>
+    <input id="userName" placeholder="Adın"/>
+    <button class="btn btn-primary" id="saveNameBtn">Kaydet ✨</button>
+    <h3 id="welcome" style="margin-left:10px;color:var(--pink-deep)"></h3>
+  </div>
+
+  <section style="text-align:center;margin-bottom:10px">
+    <span style="font-size:.8rem;margin-right:6px">Tema:</span>
+    <button class="btn btn-ghost" data-theme="spiritual">🌙 Spiritüel</button>
+    <button class="btn btn-ghost" data-theme="disney">🎀 Disney</button>
+    <button class="btn btn-ghost" data-theme="growth">🚀 Gelişim</button>
+  </section>
+
+  <section id="modeSelect" class="mode-select">
+    <article class="mode-card" data-mode="spiritual">
+      <div>꧁༺❀༻꧂calendar 1꧁༺❀༻꧂</div>
+      <div class="mode-title">🌙 ˚.🕋 ﷲ ﷽</div>
+      <p>✮ ⋆ ˚｡𖦹 ⋆°°✩˚.</p>
+    </article>
+    <article class="mode-card" data-mode="disney">
+      <div>꧁༺❀༻꧂calendar 2꧁༺❀༻꧂</div>
+      <div class="mode-title">🌟 ⋆.˚🦢⋆🤍🤍🤍🎀༘⋆</div>
+      <p>꧁ᬊᬁᴀɴɢᴇʟᬊ᭄꧂˖</p>
+    </article>
+    <article class="mode-card" data-mode="growth">
+      <div>꧁༺❀༻꧂calendar 3꧁༺❀༻꧂</div>
+      <div class="mode-title">🚀 Büyüme & Hedef</div>
+      <p>🚀🎯📈🏅🥇🌟</p>
+    </article>
+  </section>
+
+  <section id="calendarSection" class="calendar-wrapper hidden">
+    <div style="display:flex;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:10px">
+      <div>
+        <div>Takvim</div>
+        <div style="font-size:.8rem">Her gün bir sürpriz</div>
+      </div>
+      <div style="text-align:right">
+        <div id="scoreInfo" style="font-size:1rem;font-weight:bold">Açılan: 0/24 | Hak: 0</div>
+        <div style="font-size:.8rem" id="favoriteInfo">Favori kutu: 0 ❤️</div>
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;justify-content:flex-end">
+          <button class="btn" id="inviteBtn" title="Ek hak kazan">💌</button>
+          <button class="btn" id="shuffleBtn" title="Karıştır">🎲</button>
+          <button class="btn" id="shareBtn" title="Paylaş">📤 Paylaş</button>
+          <button class="btn" id="resetThemeBtn">Sıfırla</button>
+        </div>
+      </div>
+    </div>
+    <div class="calendar-grid" id="calendarGrid"></div>
+    <div id="premiumRow" class="premium-row"></div>
+  </section>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal modal-opening" id="mainModal">
+    <button class="btn" id="closeModalBtn" style="position:absolute;top:18px;right:18px">Kapat ✖</button>
+    <div id="modalTitle" style="font-size:1.6rem;font-weight:700;color:var(--pink-deep);margin-bottom:10px">1. Gün</div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:6px;flex-wrap:wrap">
+      <button class="btn" id="favoriteBtn">🤍 Favori yap</button>
+      <div style="flex:1"></div>
+      <button class="btn" id="friendMsgToggleBtn">🧑‍🤝‍🧑 Arkadaşa Mesaj</button>
+    </div>
+
+    <div id="gameArea" style="display:none;background:#fff0f5;padding:15px;border-radius:15px;margin-bottom:15px">
+      <h3 id="gameQuestion" style="color:var(--pink-deep);margin-bottom:10px"></h3>
+      <div id="gameAnswers" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"></div>
+      <div id="memoryGame" class="hidden">
+        <p style="font-size:.9rem;margin-bottom:6px">Eşleşen emojiyi bul! 👀</p>
+        <div class="game-memory-grid" id="memoryGrid"></div>
+      </div>
+    </div>
+
+    <div id="giftContainer" style="padding:20px">
+      <div style="font-size:120px;animation:bounceGift 1.1s infinite alternate">🎁</div>
+    </div>
+
+    <div id="modalContent" style="display:none;margin-top:5px">
+      <div style="background:#fff;padding:15px;border-radius:8px;margin-bottom:10px">
+        <canvas id="photoCanvas" width="400" height="260" style="width:100%;border-radius:10px"></canvas>
+        <input id="photoNote" placeholder="Bugünkü notun..." style="width:100%;border:none;text-align:center;margin-top:10px;font-family:'Dancing Script',cursive;font-size:1.4rem"/>
+      </div>
+
+      <div id="surpriseTextContainer" style="display:none;background:#fff;padding:10px;border-radius:10px;margin-bottom:10px;font-size:.95rem"></div>
+
+      <div id="audioContainer" style="display:none;margin-bottom:10px">
+        <audio id="audioPlayer" controls style="width:100%"></audio>
+      </div>
+
+      <div id="youtubeContainer" style="display:none;margin-bottom:12px">
+        <iframe id="youtubeIframe" width="100%" height="220" frameborder="0" allow="autoplay" allowfullscreen style="border-radius:15px"></iframe>
+      </div>
+
+      <div id="letterContainer" style="display:none;margin-bottom:15px">
+        <p style="font-size:1.1rem;font-weight:bold;margin-bottom:8px">2026'ya Mektup 💌</p>
+        <textarea id="futureText" placeholder="Mektubun..." style="width:100%;height:120px;border:3px dashed var(--pink-deep);border-radius:15px;padding:10px;font-family:'Dancing Script',cursive;font-size:1.3rem"></textarea>
+        <button class="btn btn-primary" id="saveFutureBtn" style="margin-top:10px">Kilitle 🔒</button>
+      </div>
+
+      <div id="friendMsgContainer" style="display:none;margin-top:5px">
+        <p style="font-size:.9rem;margin-bottom:5px">Bu günün sürprizi için arkadaşına mini not bırak 💌</p>
+        <input id="friendName" placeholder="Arkadaşının adı" style="width:100%;margin-bottom:5px;padding:6px;border-radius:10px;border:1px solid #f2cde0"/>
+        <textarea id="friendMessage" placeholder="Mesajın..." style="width:100%;height:70px;border-radius:10px;border:1px solid #f2cde0;padding:6px"></textarea>
+        <button class="btn btn-primary" id="saveFriendMsgBtn" style="margin-top:5px">Kaydet 💾</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="diaryBackdrop">
+  <div class="modal" style="max-width:550px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+      <h3>📖 Anılar (Sadece Notların)</h3>
+      <button class="btn" id="closeDiaryBtn">Kapat</button>
+    </div>
+    <div id="diaryList"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="galleryBackdrop">
+  <div class="modal" style="max-width:600px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+      <h3>🖼 Galeri</h3>
+      <button class="btn" id="closeGalleryBtn">Kapat</button>
+    </div>
+    <div style="margin-bottom:8px;text-align:left">
+      <button class="btn btn-primary" id="addPhotoBtn">📸 Fotoğraf Ekle</button>
+      <input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none"/>
+    </div>
+    <div id="galleryGrid" class="gallery-grid"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="trophyBackdrop">
+  <div class="modal" style="max-width:650px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+      <h3>🏆 Kupalar & Stickerlar</h3>
+      <button class="btn" id="closeTrophyBtn">Kapat</button>
+    </div>
+    <div class="trophy-grid" id="trophyGrid"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="leaderboardBackdrop">
+  <div class="modal" style="max-width:600px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+      <h3>🏅 Liderlik Tablosu</h3>
+      <button class="btn" id="closeLeaderboardBtn">Kapat</button>
+    </div>
+    <div style="margin-bottom:10px;text-align:left">
+      <p style="font-size:.85rem;margin-bottom:5px">Kendi skorunu ve arkadaşlarını ekleyebilirsin. Bu tablo sadece bu cihazda saklanır.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:5px">
+        <input id="lbName" placeholder="İsim" style="flex:1;min-width:120px;padding:6px;border-radius:10px;border:1px solid #f2cde0"/>
+        <input id="lbScore" placeholder="Skor" type="number" style="width:80px;padding:6px;border-radius:10px;border:1px solid #f2cde0"/>
+        <button class="btn btn-primary" id="addLeaderboardBtn">Ekle ➕</button>
+      </div>
+    </div>
+    <div id="leaderboardList" style="text-align:left;font-size:.9rem"></div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="wheelBackdrop">
+  <div class="modal" style="max-width:500px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+      <h3>🎡 Günlük Şans Çarkı</h3>
+      <button class="btn" id="closeWheelBtn">Kapat</button>
+    </div>
+    <p style="font-size:.9rem;margin-bottom:5px">Günde bir kez çevirebilirsin. Ödüller: XP, hak, sticker, sürpriz!</p>
+    <div id="wheel"></div>
+    <button class="btn btn-primary" id="doSpinBtn" style="margin-top:8px">Çevir 🎰</button>
+    <p id="wheelResult" style="margin-top:8px;font-weight:bold"></p>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="premiumBackdrop">
+  <div class="modal" style="max-width:480px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:10px;align-items:center">
+      <h3>👑 Premium Üyelik</h3>
+      <button class="btn" id="closePremiumBtn">Kapat</button>
+    </div>
+    <p style="font-size:.9rem;margin-bottom:8px">
+      Premium üyeler için ekstra 4 özel gün: <b>25, 26, 27, 28</b>. <br/>
+      Her gün ekstra motivasyon, hedef ve mini sürprizler ✨
+    </p>
+    <ul style="text-align:left;font-size:.85rem;margin-bottom:10px;padding-left:18px">
+      <li>👑 Altın taçlı özel kutular</li>
+      <li>🔓 Kilidi açınca tüm premium günler aktif olur</li>
+      <li>📌 Sadece bu cihazda saklanır, gerçek ödeme yok (demo)</li>
+    </ul>
+    <button class="btn btn-primary" id="unlockPremiumBtn">Premiumu Aç ✨</button>
+  </div>
+</div>
+
+
+
+<script>
+  /* === MULTILANGUAGE SYSTEM === */
+
+const langData = {
+  tr: {
+    calendarTitle: "✨ Advent Takvimi ✨",
+    surpriseBox: "🎁 Sürpriz Kutusu",
+    startInstruction: "BİR CALENDAR SEÇ VE BAŞLA",
+    save: "Kaydet ✨",
+    theme: "Tema:",
+    spiritual: "🌙 Spiritüel",
+    disney: "🎀 Disney",
+    growth: "🚀 Gelişim",
+    day: ". Gün",
+    favorite: "🤍 Favori yap",
+    favorited: "❤️ Favorilerde",
+    close: "Kapat ✖",
+    diary: "📖 Anılar",
+    gallery: "🖼 Galeri",
+    trophies: "🏆 Kupalar",
+    leaderboard: "🏅 Sıralama",
+  },
+
+  en: {
+    calendarTitle: "✨ Advent Calendar ✨",
+    surpriseBox: "🎁 Surprise Box",
+    startInstruction: "CHOOSE A CALENDAR TO BEGIN",
+    save: "Save ✨",
+    theme: "Theme:",
+    spiritual: "🌙 Spiritual",
+    disney: "🎀 Disney",
+    growth: "🚀 Growth",
+    day: " Day",
+    favorite: "🤍 Add to Favorites",
+    favorited: "❤️ Favorited",
+    close: "Close ✖",
+    diary: "📖 Diary",
+    gallery: "🖼 Gallery",
+    trophies: "🏆 Trophies",
+    leaderboard: "🏅 Leaderboard",
+  }
+};
+
+let currentLang = "tr";
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem("advent_lang", lang);
+document.getElementById("toggleLangBtn").onclick = () => {
+  const newLang = currentLang === "tr" ? "en" : "tr";
+  setLang(newLang);
+};const savedLang = localStorage.getItem("advent_lang") || "tr";
+setLang(savedLang);
+
+
+  document.querySelector(".huge-title").textContent = langData[lang].calendarTitle;
+  document.querySelector(".app-header-left").textContent = langData[lang].surpriseBox;
+  document.getElementById("instructionText").textContent = langData[lang].startInstruction;
+  document.getElementById("saveNameBtn").textContent = langData[lang].save;
+}
+
+const TOTAL_DAYS=24;
+const PREFIX='advent_';
+let currentMode=null;
+let userName="";
+let inviteCredits=0;
+let xp=0;
+let level=1;
+let favorites=new Set();
+let stickers=[];
+let groupCount=0;
+let currentDayInModal=null;
+let premiumUnlocked=false;
+
+const disneySongs=["https://www.youtube.com/watch?v=9hAYosBSkhA","https://www.youtube.com/watch?v=nB0Kdt_QQ-w","https://www.youtube.com/watch?v=SIneTAN-NXU"];
+
+const contentConfig={
+  spiritual:{
+    1:{type:"text",message:"Bugün kalbini hafiflet, küçük bir dua ile başla 💕"},
+    2:{type:"text",message:"Kimse görmese de Rabbin biliyor, kalbin niyetini temiz tut 🌙"},
+    3:{type:"text",message:"Bugün birine karşılıksız iyilik yap 🕊"},
+  },
+  disney:{
+    1:{type:"text",message:"Küçük bir Disney sihri: bugün kendine nazik ol ✨"},
+  },
+  growth:{
+    1:{type:"text",message:"Bugünün hedefi: Kendinle gurur duyacağın 1 küçük adım at 🚀"},
+  }
+};
+
+const achievements=[
+  {id:'first',icon:'🌱',title:'İlk Adım',desc:'İlk kutuyu açtın!'},
+  {id:'half',icon:'⭐️',title:'Yarı Yol',desc:'12 kutu açtın!'},
+  {id:'full',icon:'🏆',title:'Tam Koleksiyon',desc:'24 kutunun hepsini açtın!'},
+  {id:'collector',icon:'🎴',title:'Sticker Koleksiyoncusu',desc:'5 farklı sticker topladın.'}
+];
+
+function loadData(key,def){
+  try{
+    const v=JSON.parse(localStorage.getItem(PREFIX+key));
+    return v===null?def:v;
+  }catch(e){
+    return def;
+  }
+}
+function saveData(key,value){
+  localStorage.setItem(PREFIX+key,JSON.stringify(value));
+}
+
+userName=loadData('name',"");
+inviteCredits=loadData('credits',0);
+xp=loadData('xp',0);
+level=loadData('level',1);
+favorites=new Set(loadData('favorites',[]));
+stickers=loadData('stickers',[]);
+groupCount=loadData('groupCount',0);
+premiumUnlocked=loadData('premiumUnlocked',false);
+
+const hasVisited=loadData('hasVisited',false);
+const splashScreen=document.getElementById('splashScreen');
+
+if(!hasVisited){
+  document.body.style.overflow='hidden';
+}else{
+  splashScreen.style.display='none';
+  document.body.style.overflow='auto';
+}
+
+if(userName){
+  document.getElementById('welcome').textContent="Hoş geldin, "+userName+" 🎄";
+  document.getElementById('userName').value=userName;
+}
+
+document.getElementById('saveNameBtn').onclick=()=>{
+  userName=document.getElementById('userName').value||"Misafir";
+  saveData('name',userName);
+  document.getElementById('welcome').textContent="Hoş geldin, "+userName+" 🎄";
+  alert("Kaydedildi! 🎉");
+};
+
+const toggleDarkBtn=document.getElementById('toggleDarkBtn');
+let isDark=loadData('darkMode',false);
+if(isDark)document.body.classList.add('dark');
+toggleDarkBtn.onclick=()=>{
+  isDark=!isDark;
+  if(isDark)document.body.classList.add('dark');
+  else document.body.classList.remove('dark');
+  saveData('darkMode',isDark);
+};
+
+const bgMusic=document.getElementById('bgMusic');
+const sfxOpen=document.getElementById('sfxOpen');
+const sfxClick=document.getElementById('sfxClick');
+let musicOn=loadData('musicOn',false);
+
+function safePlay(audio){
+  if(!audio)return;
+  audio.currentTime=0;
+  audio.play().catch(()=>{});
+}
+if(musicOn){
+  bgMusic.volume=0.35;
+  bgMusic.play().catch(()=>{});
+}
+document.getElementById('toggleMusicBtn').onclick=()=>{
+  musicOn=!musicOn;
+  saveData('musicOn',musicOn);
+  if(musicOn){
+    bgMusic.volume=0.35;
+    bgMusic.play().catch(()=>{});
+  }else{
+    bgMusic.pause();
+  }
+};
+
+function gainXP(amount){
+  xp+=amount;
+  saveData('xp',xp);
+  const newLevel=1+Math.floor(xp/50);
+  if(newLevel!==level){
+    level=newLevel;
+    saveData('level',level);
+    alert("Seviye atladın! 🎉 Yeni seviye: "+level);
+  }
+  updateLevelUI();
+}
+function updateLevelUI(){
+  document.getElementById('levelInfo').textContent=`Seviye: ${level} | XP: ${xp}`;
+  document.getElementById('challengeInfo').textContent=`Grup Challenge: ${groupCount} kişi 🎯`;
+}
+updateLevelUI();
+
+function updateProgress(){
+  if(!currentMode)return;
+  const opened=new Set(loadData('o_'+currentMode,[]));
+  const count=opened.size;
+  const p=Math.round(count/TOTAL_DAYS*100);
+  const fill=document.getElementById('progressFill');
+  fill.style.width=p+'%';
+  document.getElementById('progressPercent').textContent=p+'%';
+
+  if(count>=5)document.getElementById('badge5').classList.add('earned');
+  if(count>=10)document.getElementById('badge10').classList.add('earned');
+  if(count>=24)document.getElementById('badge24').classList.add('earned');
+}
+function updateScore(){
+  if(!currentMode)return;
+  const openedSet=new Set(loadData('o_'+currentMode,[]));
+  document.getElementById('scoreInfo').textContent=`Açılan: ${openedSet.size}/${TOTAL_DAYS} | Hak: ${inviteCredits}`;
+  document.getElementById('favoriteInfo').textContent=`Favori kutu: ${favorites.size} ❤️`;
+}
+
+function renderCalendar(){
+  if(!currentMode)return;
+  const opened=new Set(loadData('o_'+currentMode,[]));
+  const grid=document.getElementById('calendarGrid');
+  grid.innerHTML="";
+  updateProgress();
+  for(let d=1;d<=TOTAL_DAYS;d++){
+    const box=document.createElement("button");
+    const p=((d-1)%6)+1;
+    box.className=`box pattern-${p}`;
+    if([2,5,8,13,17,21].includes(d))box.classList.add("box-big");
+    const rv=document.createElement('div');rv.className='ribbon-v';
+    const rh=document.createElement('div');rh.className='ribbon-h';
+    const kn=document.createElement('div');kn.className='ribbon-knot';
+    box.append(rv,rh,kn);
+    const tag=document.createElement('div');
+    tag.className='gift-tag';
+    tag.textContent=d;
+    box.appendChild(tag);
+
+    const today=new Date();
+    const isDecember=(today.getMonth()===11);
+    const locked=isDecember?(d>today.getDate()):false;
+
+    if(locked)box.classList.add("box-locked");
+    if(opened.has(d))box.classList.add("box-opened","glow");
+
+    box.onclick=()=>{
+      if(locked){
+        alert("Henüz açılamaz! 🎄");
+        return;
+      }
+      safePlay(sfxClick);
+      if([7,14,21].includes(d)&&!opened.has(d)){
+        openGame(d);
+      }else{
+        openBox(d,true);
+      }
+    };
+    grid.appendChild(box);
+  }
+  updateScore();
+  setupPremiumUI();
+}
+
+function setupPremiumUI(){
+  const row=document.getElementById('premiumRow');
+  if(!row)return;
+  row.innerHTML="";
+  const days=[25,26,27,28];
+  days.forEach(day=>{
+    const btn=document.createElement('button');
+    btn.className='premium-box';
+    if(!premiumUnlocked)btn.classList.add('locked');
+    const crownInner=document.createElement('div');
+    crownInner.className='premium-crown';
+    const midDot=document.createElement('span');
+    crownInner.appendChild(midDot);
+
+    const lockDiv=document.createElement('div');
+    lockDiv.className='premium-lock';
+    lockDiv.textContent=premiumUnlocked?'VIP':'🔒';
+
+    const label=document.createElement('div');
+    label.className='premium-label';
+    label.textContent=`${day}. Gün`;
+
+    const sub=document.createElement('div');
+    sub.className='premium-sub';
+    sub.textContent=premiumUnlocked?'Açmak için tıkla':'Özel Satın Al';
+
+    btn.appendChild(crownInner);
+    btn.appendChild(lockDiv);
+    btn.appendChild(label);
+    btn.appendChild(sub);
+
+    btn.onclick=()=>{
+      if(!currentMode){
+        alert("Önce bir calendar seç 🎄");
+        return;
+      }
+      if(!premiumUnlocked){
+        openPremiumModal();
+      }else{
+        safePlay(sfxClick);
+        openBox(day,true);
+      }
+    };
+
+    row.appendChild(btn);
+  });
+}
+
+function enterMode(m){
+  currentMode=m;
+  document.getElementById('modeSelect').classList.add("hidden");
+  document.getElementById('calendarSection').classList.remove("hidden");
+  document.getElementById('instructionText').classList.add("hidden");
+  document.getElementById('progressContainer').classList.remove("hidden");
+  document.getElementById('backToModes').style.display='inline-flex';
+
+  document.body.classList.remove('theme-spiritual','theme-disney','theme-growth');
+  document.body.classList.add('theme-'+m);
+
+  const titleEl=document.querySelector('.huge-title');
+  const headerLeft=document.querySelector('.app-header-left');
+  if(m==='spiritual'){
+    titleEl.textContent="🌙 Dua & Huzur Takvimi";
+    headerLeft.textContent="🕋 Spiritüel Sürpriz Kutusu";
+  }else if(m==='disney'){
+    titleEl.textContent="🎀 Masal & Disney Takvimi";
+    headerLeft.textContent="✨ Masalsı Sürpriz Kutusu";
+  }else if(m==='growth'){
+    titleEl.textContent="🚀 Büyüme & Hedef Takvimi";
+    headerLeft.textContent="📈 Gelişim Sürpriz Kutusu";
+  }
+
+  renderCalendar();
+}
+
+document.getElementById('backToModes').onclick=()=>{
+  document.getElementById('calendarSection').classList.add("hidden");
+  document.getElementById('progressContainer').classList.add("hidden");
+  document.getElementById('modeSelect').classList.remove("hidden");
+  document.getElementById('instructionText').classList.remove("hidden");
+  document.getElementById('backToModes').style.display='none';
+  currentMode=null;
+  document.querySelector('.huge-title').textContent="✨ Advent Calendar ✨";
+  document.querySelector('.app-header-left').textContent="🎁 Sürpriz Kutusu";
+};
+
+document.querySelectorAll('.mode-card').forEach(c=>{
+  c.onclick=()=>enterMode(c.dataset.mode);
+});
+
+document.querySelectorAll('button[data-theme]').forEach(btn=>{
+  btn.onclick=()=>{
+    const t=btn.getAttribute('data-theme');
+    document.body.classList.remove('theme-spiritual','theme-disney','theme-growth');
+    document.body.classList.add('theme-'+t);
+  };
+});
+
+function openGame(day){
+  const modalBackdrop=document.getElementById('modalBackdrop');
+  const gameArea=document.getElementById('gameArea');
+  const giftContainer=document.getElementById('giftContainer');
+  document.getElementById('modalTitle').textContent="Oyun! 🎲";
+  gameArea.style.display='block';
+  document.getElementById('memoryGame').classList.add('hidden');
+  document.getElementById('gameAnswers').innerHTML="";
+  giftContainer.style.display='none';
+  document.getElementById('modalContent').style.display='none';
+
+  const qs={
+    7:{q:"Pamuk Prenses kaç cüce ile yaşıyordu?",a:["5","7","10"],c:"7",type:"quiz"},
+    14:{q:"En sevdiğin renk hangisi?",a:["Pembe 💖","Mavi 💙","Siyah 🖤"],c:"Pembe 💖",type:"quiz"},
+    21:{q:"3×7+1=?",a:["21","22","24"],c:"22",type:"quiz"}
+  };
+  const q=qs[day];
+
+  if(q&&q.type==="quiz"){
+    document.getElementById('gameQuestion').textContent=q.q;
+    const ans=document.getElementById('gameAnswers');
+    q.a.forEach(opt=>{
+      const b=document.createElement('button');
+      b.className='btn btn-primary';
+      b.textContent=opt;
+      b.onclick=()=>{
+        if(opt===q.c){
+          alert("Doğru! 🎉");
+          gainXP(10);
+          gameArea.style.display='none';
+          openBox(day,true);
+        }else{
+          alert("Yanlış! Tekrar dene 🙈");
+        }
+      };
+      ans.appendChild(b);
+    });
+  }
+
+  if(day===21){
+    document.getElementById('memoryGame').classList.remove('hidden');
+    const grid=document.getElementById('memoryGrid');
+    grid.innerHTML="";
+    const emojis=["🌟","🌟","🎁","🎁","💖","💖","✨","✨"];
+    emojis.sort(()=>Math.random()-0.5);
+    let lastIndex=null;
+    let matched=0;
+    emojis.forEach((em,i)=>{
+      const cell=document.createElement('div');
+      cell.className='game-memory-cell';
+      cell.textContent="❔";
+      cell.onclick=()=>{
+        if(cell.dataset.matched==="1")return;
+        cell.textContent=em;
+        if(lastIndex===null){
+          lastIndex=i;
+          grid.childNodes[i].dataset.value=em;
+        }else{
+          const prevCell=grid.childNodes[lastIndex];
+          if(prevCell.dataset.value===em&&lastIndex!==i){
+            cell.dataset.matched="1";
+            prevCell.dataset.matched="1";
+            matched+=2;
+            gainXP(5);
+          }else{
+            setTimeout(()=>{
+              if(cell.dataset.matched!=="1")cell.textContent="❔";
+              if(prevCell.dataset.matched!=="1")prevCell.textContent="❔";
+            },500);
+          }
+          lastIndex=null;
+          if(matched===emojis.length){
+            alert("Hafıza oyunu tamam! Ek XP 🎉");
+            gainXP(20);
+          }
+        }
+      };
+      grid.appendChild(cell);
+    });
+  }
+
+  modalBackdrop.style.display='flex';
+}
+
+/* 🌸 ÇİÇEK / KALP / SPARKLE YAĞMURU */
+function launchConfetti(){
+  const layer=document.createElement('div');
+  layer.className='petal-layer';
+  layer.style.position='fixed';
+  layer.style.inset='0';
+  layer.style.pointerEvents='none';
+  layer.style.zIndex='999999';
+  document.body.appendChild(layer);
+
+  const style=document.createElement('style');
+  style.textContent=`
+    .petal{
+      position:fixed;
+      font-size:26px;
+      animation:petalFall linear forwards;
+      pointer-events:none;
+      z-index:999999;
+    }
+    @keyframes petalFall{
+      to{
+        transform:translateY(100vh) rotate(360deg);
+        opacity:0;
+      }
+    }
+  `;
+  layer.appendChild(style);
+
+  const symbols=["🌸","💖","✨","🌟","💞"];
+  for(let i=0;i<80;i++){
+    const p=document.createElement('div');
+    p.className='petal';
+    p.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    p.style.left=Math.random()*100+'vw';
+    p.style.top='-40px';
+    p.style.animationDuration=(2+Math.random()*2)+'s';
+    layer.appendChild(p);
+  }
+  setTimeout(()=>layer.remove(),3500);
+}
+
+function openBox(day,fromGame){
+  if(!currentMode)return;
+  currentDayInModal=day;
+  safePlay(sfxOpen);
+  launchConfetti();
+
+  const opened=new Set(loadData('o_'+currentMode,[]));
+  const beforeSize=opened.size;
+  if(day<=TOTAL_DAYS){
+    opened.add(day);
+    saveData('o_'+currentMode,[...opened]);
+  }
+
+  if(beforeSize===0&&day<=TOTAL_DAYS)gainXP(15);
+  else gainXP(5);
+
+  if(opened.size>1&&inviteCredits>0){
+    inviteCredits--;
+    saveData('credits',inviteCredits);
+  }
+
+  if([6,12,24].includes(day)){
+    gainXP(20);
+    groupCount++;
+    saveData('groupCount',groupCount);
+  }
+
+  renderCalendar();
+  updateLevelUI();
+
+  document.getElementById('modalTitle').textContent =
+  currentLang === "tr" ? `${day}. Gün` : `Day ${day}`;
+
+  document.getElementById('giftContainer').style.display='block';
+  document.getElementById('modalContent').style.display='none';
+  document.getElementById('gameArea').style.display='none';
+  document.getElementById('modalBackdrop').style.display='flex';
+
+  document.getElementById('youtubeIframe').src="";
+
+  setTimeout(()=>{
+    document.getElementById('giftContainer').style.display='none';
+    document.getElementById('modalContent').style.display='block';
+    showDayContent(day);
+    refreshFavoriteButton();
+  },1200);
+}
+
+function showDayContent(day){
+  const cvs=document.getElementById('photoCanvas');
+  const ctx=cvs.getContext('2d');
+  const folder=currentMode==="spiritual"?"images/dini":currentMode==="disney"?"images/disney":"images/kisisel";
+  const img=new Image();
+  img.src=`${folder}/${day}.jpg`;
+
+  img.onload=()=>{
+    cvs.width=img.width;
+    cvs.height=img.height;
+    ctx.drawImage(img,0,0);
+    saveGallerySnapshot(day);
+  };
+  img.onerror=()=>{
+    cvs.width=400;
+    cvs.height=260;
+    ctx.fillStyle="#ffb3d6";
+    ctx.fillRect(0,0,400,260);
+    ctx.fillStyle="#fff";
+    ctx.font="bold 26px Arial";
+    ctx.textAlign="center";
+    ctx.fillText(`${day}. Gün 💝`,200,140);
+  };
+
+  const youtubeContainer=document.getElementById('youtubeContainer');
+  const surpriseTextContainer=document.getElementById('surpriseTextContainer');
+  const audioContainer=document.getElementById('audioContainer');
+  const audioPlayer=document.getElementById('audioPlayer');
+  const letterContainer=document.getElementById('letterContainer');
+  const photoNoteInput=document.getElementById('photoNote');
+
+  youtubeContainer.style.display="none";
+  surpriseTextContainer.style.display="none";
+  audioContainer.style.display="none";
+  letterContainer.style.display="none";
+
+  if(day===24){
+    letterContainer.style.display='block';
+  }
+
+  const notesAll=loadData('notes',{});
+  photoNoteInput.value=notesAll[day]||"";
+
+  const conf=(contentConfig[currentMode]||{})[day];
+
+  if(currentMode==='spiritual'){
+    if(conf&&conf.type==="text"){
+      surpriseTextContainer.style.display='block';
+      surpriseTextContainer.textContent=conf.message||"";
+    }
+    return;
+  }
+
+  if(conf){
+    if(conf.type==="youtube"&&conf.url){
+      youtubeContainer.style.display='block';
+      const id=new URLSearchParams(new URL(conf.url).search).get('v');
+      if(id)document.getElementById('youtubeIframe').src=`https://www.youtube.com/embed/${id}?autoplay=1`;
+    }else if(conf.type==="text"){
+      surpriseTextContainer.style.display='block';
+      surpriseTextContainer.textContent=conf.message||"";
+    }else if(conf.type==="audio"&&conf.url){
+      audioContainer.style.display='block';
+      audioPlayer.src=conf.url;
+      audioPlayer.play().catch(()=>{});
+    }
+  }
+
+  if((!conf||conf.type!=="youtube")&&(currentMode==='disney'||currentMode==='growth')){
+    youtubeContainer.style.display='block';
+    const video=disneySongs[Math.floor(Math.random()*disneySongs.length)];
+    const id=new URLSearchParams(new URL(video).search).get('v');
+    if(id){
+      document.getElementById('youtubeIframe').src=`https://www.youtube.com/embed/${id}?autoplay=1&controls=1`;
+    }
+  }
+}
+
+document.getElementById('photoNote').addEventListener('blur',()=>{
+  if(!currentDayInModal)return;
+  const val=document.getElementById('photoNote').value;
+  const notes=loadData('notes',{});
+  if(val&&val.trim()!==""){
+    notes[currentDayInModal]=val.trim();
+  }else{
+    delete notes[currentDayInModal];
+  }
+  saveData('notes',notes);
+});
+
+function saveGallerySnapshot(day){
+  if(!currentMode)return;
+  const g=new Set(loadData('gallery_'+currentMode,[]));
+  g.add(day);
+  saveData('gallery_'+currentMode,[...g]);
+}
+
+document.getElementById('inviteBtn').onclick=()=>{
+  inviteCredits+=3;
+  saveData('credits',inviteCredits);
+  alert("3 yeni hak kazandın! 💌");
+  renderCalendar();
+};
+document.getElementById('shuffleBtn').onclick=()=>{
+  if(inviteCredits>0){
+    inviteCredits--;
+    saveData('credits',inviteCredits);
+    alert("Kutu desenleri karıştırıldı 🎲 (görsel)");
+    renderCalendar();
+  }else alert("Hak yok! 😢");
+};
+document.getElementById('resetThemeBtn').onclick=()=>{
+  if(!currentMode)return;
+  if(confirm("Bu takvimi sıfırlamak istediğine emin misin?")){
+    saveData('o_'+currentMode,[]);
+    saveData('gallery_'+currentMode,[]);
+    renderCalendar();
+  }
+};
+document.getElementById('shareBtn').onclick=()=>{
+  const text=`Ben ${userName||"bir kullanıcı"}, Advent Calendar'da kutu açıyorum! 🎁`;
+  const url=window.location.href;
+  if(navigator.share){
+    navigator.share({title:"Advent Calendar",text,url}).catch(()=>{});
+  }else{
+    navigator.clipboard.writeText(text+" "+url).then(()=>{
+      alert("Metin panoya kopyalandı, arkadaşlarına gönder! ✨");
+    });
+  }
+};
+
+document.getElementById('closeModalBtn').onclick=()=>{
+  document.getElementById('modalBackdrop').style.display='none';
+  document.getElementById('youtubeIframe').src="";
+};
+
+document.getElementById('saveFutureBtn').onclick=()=>{
+  saveData('letter',document.getElementById('futureText').value);
+  alert("Mektubun kilitlendi! 🔒");
+  document.getElementById('modalBackdrop').style.display='none';
+};
+
+document.getElementById('openDiaryBtn').onclick=()=>{
+  const l=document.getElementById('diaryList');
+  l.innerHTML="";
+  const notes=loadData('notes',{});
+  const days=Object.keys(notes).map(Number).sort((a,b)=>a-b);
+  if(days.length===0){
+    l.innerHTML="<p>Henüz hiç not yazmadın. Kutuyu açınca üstteki not kısmına yazdıkların burada görünecek 💌</p>";
+  }else{
+    days.forEach(d=>{
+      const text=notes[d];
+      const item=document.createElement('div');
+      item.className='diary-item';
+      item.innerHTML=`<b>${d}. Gün</b><br>${text}`;
+      l.appendChild(item);
+    });
+  }
+  document.getElementById('diaryBackdrop').style.display='flex';
+};
+document.getElementById('closeDiaryBtn').onclick=()=>document.getElementById('diaryBackdrop').style.display='none';
+
+function renderGallery(){
+  const g=document.getElementById('galleryGrid');
+  g.innerHTML="";
+  if(!currentMode){
+    g.innerHTML="<p>Önce bir calendar seç.</p>";
+    return;
+  }
+  const opened=new Set(loadData('gallery_'+currentMode,[]));
+  const userPhotos=loadData('userGallery',[]);
+
+  if(opened.size===0&&userPhotos.length===0){
+    g.innerHTML="<p>Henüz galeri boş. Kutu açınca veya fotoğraf ekleyince burada göreceksin 📸</p>";
+    return;
+  }
+
+  [...opened].sort((a,b)=>a-b).forEach(d=>{
+    const tile=document.createElement('div');
+    tile.style.background="#ffe0f0";
+    tile.style.borderRadius="10px";
+    tile.style.padding="4px";
+    tile.innerHTML=`<div style="font-size:.8rem;margin-bottom:3px">${d}. Gün</div>`;
+    const miniCanvas=document.createElement('canvas');
+    miniCanvas.width=120;
+    miniCanvas.height=80;
+    miniCanvas.style.width="100%";
+    miniCanvas.style.borderRadius="8px";
+    const ctx=miniCanvas.getContext('2d');
+    ctx.fillStyle="#ffb3d6";
+    ctx.fillRect(0,0,miniCanvas.width,miniCanvas.height);
+    ctx.fillStyle="#fff";
+    ctx.font="bold 14px Arial";
+    ctx.textAlign="center";
+    ctx.fillText(`${d}. Gün`,miniCanvas.width/2,miniCanvas.height/2);
+    tile.appendChild(miniCanvas);
+    g.appendChild(tile);
+  });
+
+  userPhotos.forEach((src,idx)=>{
+    const tile=document.createElement('div');
+    const img=document.createElement('img');
+    img.src=src;
+    tile.appendChild(img);
+    g.appendChild(tile);
+  });
+}
+
+document.getElementById('openGalleryBtn').onclick=()=>{
+  renderGallery();
+  document.getElementById('galleryBackdrop').style.display='flex';
+};
+document.getElementById('closeGalleryBtn').onclick=()=>document.getElementById('galleryBackdrop').style.display='none';
+
+document.getElementById('addPhotoBtn').onclick=()=>{
+  document.getElementById('photoInput').click();
+};
+document.getElementById('photoInput').onchange=(e)=>{
+  const file=e.target.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    let gallery=loadData('userGallery',[]);
+    gallery.push(reader.result);
+    saveData('userGallery',gallery);
+    alert("Fotoğraf galeriye eklendi! 📸");
+    renderGallery();
+  };
+  reader.readAsDataURL(file);
+};
+
+document.getElementById('openTrophiesBtn').onclick=()=>{
+  const g=document.getElementById('trophyGrid');
+  g.innerHTML="";
+  const openedCount=currentMode?new Set(loadData('o_'+currentMode,[])).size:0;
+  achievements.forEach(a=>{
+    let unlocked=false;
+    if(a.id==='first'&&openedCount>=1)unlocked=true;
+    if(a.id==='half'&&openedCount>=12)unlocked=true;
+    if(a.id==='full'&&openedCount>=24)unlocked=true;
+    if(a.id==='collector'&&stickers.length>=5)unlocked=true;
+    const card=document.createElement('div');
+    card.className='trophy-card';
+    card.style.opacity=unlocked?"1":".4";
+    card.innerHTML=`<div style="font-size:2.3rem">${a.icon}</div><div style="font-size:0.9rem;font-weight:bold;margin-top:5px">${a.title}</div><div style="font-size:0.75rem;margin-top:3px">${a.desc}</div>`;
+    g.appendChild(card);
+  });
+
+  const stCard=document.createElement('div');
+  stCard.className='trophy-card';
+  stCard.style.gridColumn="1 / -1";
+  stCard.innerHTML=`<div style="font-weight:bold;margin-bottom:5px">Sticker Koleksiyonu (${stickers.length})</div>`;
+  if(stickers.length===0){
+    stCard.innerHTML+=`<div style="font-size:.8rem">Henüz sticker yok. Şans çarkı ve özel günlerden kazanabilirsin 🎴</div>`;
+  }else{
+    stCard.innerHTML+=`<div>${stickers.map(s=>`<span style="margin:0 4px">${s}</span>`).join("")}</div>`;
+  }
+  g.appendChild(stCard);
+
+  document.getElementById('trophyBackdrop').style.display='flex';
+};
+document.getElementById('closeTrophyBtn').onclick=()=>document.getElementById('trophyBackdrop').style.display='none';
+
+const favoriteBtn=document.getElementById('favoriteBtn');
+favoriteBtn.onclick=()=>{
+  if(currentDayInModal==null)return;
+  if(favorites.has(currentDayInModal)){
+    favorites.delete(currentDayInModal);
+  }else{
+    favorites.add(currentDayInModal);
+  }
+  saveData('favorites',[...favorites]);
+  refreshFavoriteButton();
+  updateScore();
+};
+function refreshFavoriteButton(){
+  if(currentDayInModal==null)return;
+  if(favorites.has(currentDayInModal)){
+    favoriteBtn.textContent="❤️ Favorilerde";
+  }else{
+    favoriteBtn.textContent="🤍 Favori yap";
+  }
+}
+
+document.getElementById('friendMsgToggleBtn').onclick=()=>{
+  const c=document.getElementById('friendMsgContainer');
+  c.style.display=c.style.display==='none'||!c.style.display?'block':'none';
+};
+document.getElementById('saveFriendMsgBtn').onclick=()=>{
+  if(currentDayInModal==null)return;
+  const name=document.getElementById('friendName').value||"Arkadaşım";
+  const msg=document.getElementById('friendMessage').value||"";
+  saveData(`friend_${currentDayInModal}`,{name,msg});
+  alert("Mesaj kaydedildi 💌 (sadece bu cihazda).");
+};
+
+function loadLeaderboard(){
+  return loadData('leaderboard',[]);
+}
+function saveLeaderboard(lb){
+  saveData('leaderboard',lb);
+}
+function renderLeaderboard(){
+  const list=document.getElementById('leaderboardList');
+  const lb=loadLeaderboard().sort((a,b)=>b.score-a.score);
+  if(lb.length===0){
+    list.innerHTML="<p>Henüz kayıt yok. Kendini ve arkadaşlarını ekleyebilirsin.</p>";
+    return;
+  }
+  list.innerHTML=lb.map((p,i)=>`<div style="margin-bottom:4px">${i+1}. <b>${p.name}</b> – ${p.score} puan</div>`).join("");
+}
+document.getElementById('openLeaderboardBtn').onclick=()=>{
+  renderLeaderboard();
+  document.getElementById('leaderboardBackdrop').style.display='flex';
+};
+document.getElementById('closeLeaderboardBtn').onclick=()=>document.getElementById('leaderboardBackdrop').style.display='none';
+document.getElementById('addLeaderboardBtn').onclick=()=>{
+  const n=document.getElementById('lbName').value||"Anonim";
+  const s=parseInt(document.getElementById('lbScore').value||"0",10);
+  const lb=loadLeaderboard();
+  lb.push({name:n,score:s});
+  saveLeaderboard(lb);
+  renderLeaderboard();
+};
+
+const wheelBackdrop=document.getElementById('wheelBackdrop');
+const doSpinBtn=document.getElementById('doSpinBtn');
+const wheelResult=document.getElementById('wheelResult');
+document.getElementById('spinWheelBtn').onclick=()=>{
+  wheelBackdrop.style.display='flex';
+};
+document.getElementById('closeWheelBtn').onclick=()=>wheelBackdrop.style.display='none';
+
+function lastSpinKey(){return'lastSpin';}
+doSpinBtn.onclick=()=>{
+  const lastSpin=loadData(lastSpinKey(),0);
+  const todayStr=new Date().toDateString();
+  if(lastSpin===todayStr){
+    wheelResult.textContent="Bugün zaten çevirdin 🤭 Yarın tekrar dene!";
+    return;
+  }
+  saveData(lastSpinKey(),todayStr);
+  safePlay(sfxClick);
+  const wheel=document.getElementById('wheel');
+  wheel.style.transition="transform 2s ease-out";
+  const deg=720+Math.floor(Math.random()*360);
+  wheel.style.transform=`rotate(${deg}deg)`;
+  const rewards=["+10 XP","+1 Hak","+Sticker","Sürpriz Mesaj","+20 XP"];
+  const reward=rewards[Math.floor(Math.random()*rewards.length)];
+  setTimeout(()=>{
+    wheelResult.textContent="Kazandın: "+reward+" 🎉";
+    if(reward==="+10 XP")gainXP(10);
+    if(reward==="+20 XP")gainXP(20);
+    if(reward==="+1 Hak"){inviteCredits++;saveData('credits',inviteCredits);updateScore();}
+    if(reward==="+Sticker"){
+      const pool=["🐻","🎀","🌙","🌈","🦋","🍓"];
+      const st=pool[Math.floor(Math.random()*pool.length)];
+      stickers.push(st);
+      saveData('stickers',stickers);
+    }
+    if(reward==="Sürpriz Mesaj"){
+      alert("Bugün kendine küçük bir iyilik yap. Bu mesaj sadece senin için 💖");
+    }
+  },2100);
+};
+
+const premiumBackdrop=document.getElementById('premiumBackdrop');
+document.getElementById('closePremiumBtn').onclick=()=>premiumBackdrop.style.display='none';
+function openPremiumModal(){
+  premiumBackdrop.style.display='flex';
+}
+document.getElementById('unlockPremiumBtn').onclick=()=>{
+  premiumUnlocked=true;
+  saveData('premiumUnlocked',true);
+  alert("Premium açıldı! 👑 Artık 25-28. günlere erişebilirsin.");
+  premiumBackdrop.style.display='none';
+  setupPremiumUI();
+};
+
+document.getElementById('enterCalendarBtn').onclick=()=>{
+  safePlay(sfxClick);
+  splashScreen.classList.add('fade-out');
+  saveData('hasVisited',true);
+  setTimeout(()=>{
+    splashScreen.style.display='none';
+    document.body.style.overflow='auto';
+  },800);
+};
+
+const snowCanvas=document.getElementById("snowCanvas");
+const ctxSnow=snowCanvas.getContext("2d");
+let snowflakes=[];
+
+function initSnow(){
+  snowCanvas.width=window.innerWidth;
+  snowCanvas.height=window.innerHeight;
+  snowflakes=[];
+  for(let i=0;i<150;i++){
+    snowflakes.push({
+      x:Math.random()*snowCanvas.width,
+      y:Math.random()*snowCanvas.height,
+      r:Math.random()*4+1,
+      d:Math.random()*1+0.5
+    });
+  }
+}
+function drawSnow(){
+  ctxSnow.clearRect(0,0,snowCanvas.width,snowCanvas.height);
+  ctxSnow.fillStyle="rgba(255,255,255,0.8)";
+  ctxSnow.beginPath();
+  for(let i=0;i<snowflakes.length;i++){
+    let f=snowflakes[i];
+    ctxSnow.moveTo(f.x,f.y);
+    ctxSnow.arc(f.x,f.y,f.r,0,Math.PI*2,true);
+  }
+  ctxSnow.fill();
+  updateSnow();
+}
+function updateSnow(){
+  for(let i=0;i<snowflakes.length;i++){
+    let f=snowflakes[i];
+    f.y+=f.d;
+    if(f.y>snowCanvas.height){
+      f.x=Math.random()*snowCanvas.width;
+      f.y=0;
+    }
+  }
+}
+window.addEventListener('resize',initSnow);
+initSnow();
+setInterval(drawSnow,30);
+
+updateProgress();
+updateLevelUI();
+setupPremiumUI();
+
+/* === CURTAIN OPEN SCRIPT === */
+window.addEventListener("load",()=>{
+  const gate=document.getElementById("gateScreen");
+  const visited=localStorage.getItem('advent_hasVisited'); // eski key, ama sorun yaratmaz
+
+  if(!visited){
+    return;
+  }
+
+  setTimeout(()=>{
+    gate.classList.add("gate-open");
+
+    setTimeout(()=>{
+      gate.style.opacity="0";
+      gate.style.pointerEvents="none";
+    },1600);
+
+    setTimeout(()=>{
+      gate.style.display="none";
+    },2300);
+
+  },900);
+});
+</script>
+</body>
+</html>
